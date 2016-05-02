@@ -9,7 +9,7 @@ class River
     end
 
     def get_next_sacrifice()
-        return nil if @fishes.empty?()
+        # return nil if @fishes.empty?()
         return @fishes.pop
     end
 
