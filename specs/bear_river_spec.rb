@@ -51,10 +51,9 @@ class TestBearFishRiver < MiniTest::Test
         assert_equal((num_of_fish_in_river_before_bear - 1), @river.get_fish_population())
     end
     def test_bear_eat_all_fish
-        @bear.eat(@river.get_next_sacrifice())
-        @bear.eat(@river.get_next_sacrifice())
-        @bear.eat(@river.get_next_sacrifice())
-        @bear.eat(@river.get_next_sacrifice()) # river sacrifice will be nil so bear won't eat
+        for x in (0..4)
+            @bear.eat(@river.get_next_sacrifice())
+        end # additional river sacrifice will be nil so bear won't eat
         test_result = @bear.fish_eaten
         expected_result = 3
         assert_equal(expected_result, test_result)
