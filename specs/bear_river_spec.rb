@@ -9,12 +9,19 @@ class TestBearFishRiver < MiniTest::Test
 
     def setup
         @river = River.new(3)
-        @bear = Bear.new("Colin", "Black")
+        @bear = Bear.new("Colin", "black")
+        @other_bear = Bear.new("James", "polar")
     end
 
     def test_bear_name()
         test_result = @bear.name
         expected_result = "Colin"
+        assert_equal(expected_result, test_result)
+    end
+
+    def test_other_bear_name()
+        test_result = @other_bear.name
+        expected_result = "James"
         assert_equal(expected_result, test_result)
     end
 
@@ -35,6 +42,13 @@ class TestBearFishRiver < MiniTest::Test
         expected_result = "ROOAAAARR!!!"
         assert_equal(expected_result,test_result)
     end
+
+    def test_bear_roar()
+        test_result = @other_bear.roar()
+        expected_result = "Brrrrr....."
+        assert_equal(expected_result,test_result)
+    end
+
     def test_bear_eat()
         expected_result = @bear.fish_eaten() + 1
         @bear.eat(@river.get_next_sacrifice())

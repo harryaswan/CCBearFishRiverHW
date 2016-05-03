@@ -24,7 +24,14 @@ class Bear
     end
 
     def roar()
-        return "ROOAAAARR!!!"
+        if @type == "black"
+            return "ROOAAAARR!!!"
+        elsif @type == "polar"
+            return "Brrrrr....."
+        elsif @type == "brown"
+            return "Roooar!"
+        end
+        return "roar..."
     end
 
 end
